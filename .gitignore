@@ -1,0 +1,30 @@
+# File môi trường
+.env
+.env.*
+
+# File cấu hình chứa thông tin nhạy cảm
+config.php
+database.php
+
+# Thư mục upload
+uploads/
+storage/
+
+# NodeJS
+node_modules/
+
+# Laravel
+/vendor/
+/storage/logs/
+/bootstrap/cache/
+
+# Log files
+*.log
+
+# File IDE
+.vscode/
+.idea/
+
+# File hệ điều hành
+.DS_Store
+Thumbs.db
