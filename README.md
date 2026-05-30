@@ -1,107 +1,85 @@
-Cách 1: Merge trên GitHub (khuyên dùng)
-Bước 1: Push branch lên GitHub
+Quy Trình Làm Việc Nhóm Trên GitHub
+1. Clone dự án
 
-Ví dụ người A:
+Mỗi thành viên clone source code từ GitHub về máy:
 
-git checkout -b feature-login
-git add .
-git commit -m "Hoan thanh login"
-git push origin feature-login
-Bước 2: Tạo Pull Request (PR)
+git clone https://github.com/ten-user/ten-project.git
+cd ten-project
+2. Không code trực tiếp trên branch main
 
-Trên GitHub sẽ hiện nút:
+Trước khi bắt đầu một chức năng mới, tạo branch riêng:
 
-Compare & pull request
-
-Nhấn vào.
-
-Bước 3: Chọn
-base: main
-compare: feature-login
-
-Nhấn:
-
-Create Pull Request
-Bước 4: Merge
-
-Nếu không có conflict:
-
-Merge Pull Request
-↓
-Confirm Merge
-
-Code từ feature-login sẽ được gộp vào main.
-
-Cách 2: Merge bằng Git
-Đang ở branch main
-git checkout main
-
-Lấy code mới nhất:
-
-git pull origin main
-
-Merge branch cần gộp:
-
-git merge feature-login
-
-Push lên GitHub:
-
-git push origin main
-Nếu bị Conflict
-
-Ví dụ Git báo:
-
-CONFLICT (content): Merge conflict in index.php
-Automatic merge failed
-
-Mở file bị lỗi sẽ thấy:
-
-<<<<<<< HEAD
-echo "Code cua main";
-=======
-echo "Code cua feature-login";
->>>>>>> feature-login
-Sửa thành:
-echo "Code da duoc gop";
-
-Xóa toàn bộ:
-
-<<<<<<<
-=======
->>>>>>>
-
-Sau đó:
-
-git add .
-git commit -m "Resolve conflict"
-git push origin main
-Quy trình nhóm nên dùng
-
-Mỗi người:
-
-git checkout -b ten_chuc_nang
+git checkout -b ten-chuc-nang
 
 Ví dụ:
 
 git checkout -b feature-login
-git checkout -b feature-payment
-git checkout -b feature-admin
+git checkout -b feature-car-management
+git checkout -b feature-pricing
 
-Làm xong:
+Quy ước đặt tên branch:
+
+feature-ten-chuc-nang : Chức năng mới
+fix-ten-loi : Sửa lỗi
+test-ten-chuc-nang : Kiểm thử
+3. Đồng bộ code mới nhất trước khi làm việc
+
+Trước khi code, luôn cập nhật branch main:
+
+git checkout main
+git pull origin main
+
+Sau đó quay lại branch của mình:
+
+git checkout ten-chuc-nang
+4. Commit code
+
+Sau khi hoàn thành một phần chức năng:
+
+git add .
+git commit -m "Mô tả nội dung đã thực hiện"
+
+Ví dụ:
+
+git commit -m "Hoan thanh giao dien dang nhap"
+5. Push code lên GitHub
+git push origin ten-chuc-nang
+
+Ví dụ:
 
 git push origin feature-login
+6. Tạo Pull Request (PR)
 
-Tạo Pull Request → Trưởng nhóm Merge.
+Sau khi push:
 
-Không nên để tất cả cùng push trực tiếp lên main, vì rất dễ conflict và mất code.
+Vào GitHub Repository.
+Chọn Compare & Pull Request.
+Chọn:
+Base Branch: main
+Compare Branch: ten-chuc-nang
+Nhấn Create Pull Request.
+7. Merge code
 
-Kiểm tra branch hiện có
-git branch
-Xem tất cả branch trên remote
-git branch -a
-Chuyển branch
-git checkout feature-login
+Chỉ Leader hoặc người được phân quyền thực hiện Merge:
 
-hoặc Git mới:
+Pull Request
+↓
+Review Code
+↓
+Merge Pull Request
+↓
+Confirm Merge
 
-git switch feature-login
+Không tự ý merge nếu chưa được review.
+
+8. Xử lý Conflict
+
+Nếu xảy ra xung đột:
+
+git pull origin main
+
+Sửa các file bị conflict, sau đó:
+
+git add .
+git commit -m "Resolve conflict"
+git push
