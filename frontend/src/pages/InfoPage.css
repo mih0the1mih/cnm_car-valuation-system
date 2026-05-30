@@ -1,0 +1,157 @@
+.info-page-wrapper {
+  background-color: #f4f7f9;
+  min-height: 100vh;
+  padding-bottom: 60px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.info-page-header {
+  background: linear-gradient(135deg, #0b1121 0%, #1e293b 100%);
+  padding: 60px 24px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-page-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(circle at 50% 120%, rgba(0, 102, 255, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.info-page-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: inline-block;
+  animation: infoFadeInUp 0.5s ease;
+}
+
+.info-page-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 0;
+  animation: infoFadeInUp 0.6s ease;
+}
+
+.info-page-content-wrapper {
+  max-width: 800px;
+  margin: -40px auto 0;
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 10;
+  animation: infoFadeInUp 0.7s ease;
+}
+
+.info-page-content {
+  color: #334155;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.info-page-content h2 {
+  font-size: 24px;
+  color: #0066ff;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 12px;
+}
+
+.info-page-content h3 {
+  font-size: 18px;
+  color: #1e293b;
+  font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.info-page-content p {
+  margin-bottom: 16px;
+}
+
+.info-page-content ul, .info-page-content ol {
+  margin-bottom: 24px;
+  padding-left: 24px;
+}
+
+.info-page-content li {
+  margin-bottom: 8px;
+}
+
+.info-page-content strong {
+  color: #1e293b;
+}
+
+.faq-item {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.faq-item strong {
+  display: block;
+  font-size: 16px;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.faq-item p {
+  margin: 0;
+  color: #475569;
+}
+
+/* 404 Style */
+.info-page-not-found {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.info-page-not-found h1 {
+  font-size: 48px;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.info-page-not-found p {
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+.info-page-home-btn {
+  background: #0066ff;
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: inline-block;
+  transition: background 0.3s;
+}
+
+.info-page-home-btn:hover {
+  background: #0052cc;
+}
+
+@keyframes infoFadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .info-page-content-wrapper {
+    margin: -40px 16px 0;
+    padding: 24px;
+  }
+  .info-page-title {
+    font-size: 28px;
+  }
+}
